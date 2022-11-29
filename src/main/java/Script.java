@@ -11,7 +11,7 @@ public class Script {
     }
     public void read(String text){  // https://www.unicode.org/charts/
         int code;
-        if(text!=null){
+        if(text!=null && text.length()>0){
         char[] chars=text.toCharArray();
           for (int i=0;i<chars.length;i++){
               code=chars[i];
@@ -24,13 +24,14 @@ public class Script {
              else
                  other++;
           }
+            long sum=arabic+sharda+devanagri+latin+other;
+            arabic= (100*arabic/sum);
+            sharda= (100*sharda/sum);
+            devanagri= (100*devanagri/sum);
+            latin= (100*latin/sum);
+            other= (100*other/sum);
         }
-        long sum=arabic+sharda+devanagri+latin+other;
-        arabic= (100*arabic/sum);
-        sharda= (100*sharda/sum);
-        devanagri= (100*devanagri/sum);
-        latin= (100*latin/sum);
-        other= (100*other/sum);
+
     }
     public void reset(){
         arabic=devanagri=sharda=latin=other=0;  //percentage

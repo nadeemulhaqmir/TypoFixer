@@ -1,6 +1,7 @@
 import org.wikipedia.Wiki;
 
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public   class Typo{
@@ -34,6 +35,9 @@ public   class Typo{
         this.pattern=pattern; //Pattern.compile(find);
     }
 
+    public Matcher getMatcher(String text){
+        return pattern.matcher(text);
+    }
     @Override
     public String toString() {
         return "Typo{" +
